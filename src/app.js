@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import bookRoutes from './routes/bookRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
+import cartRoutes from './routes/cartRoutes.js';
+
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -19,6 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/book', bookRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api', orderRoutes);
+app.use('/api/cart',cartRoutes )
 
 
 export default app;
